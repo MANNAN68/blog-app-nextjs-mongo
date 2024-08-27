@@ -1,24 +1,49 @@
+"use client";
+import { doCredentialLogin } from "@/app/actions";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+
 const LoginForm = () => {
+  const router = useRouter();
+  const [error, setError] = useState("");
+
+  async function onSubmit(event) {
+    event.preventDefault();
+    try {
+      const formData = new FormData(event.currentTarget);
+
+      const response = await doCredentialLogin(formData);
+
+      if (!!response.error) {
+        console.error(response.error);
+        setError(response.error.message);
+      } else {
+        router.push("/home");
+      }
+    } catch (e) {
+      console.error(e);
+      setError("Check your Credentials");
+    }
+  }
+
   return (
-    <form>
-      <div class="form-group position-relative mb-3 ">
+    <form onSubmit={onSubmit}>
+      <div className="form-group position-relative mb-3 ">
         <input
           type="email"
-          class="form-control"
+          className="form-control"
           name="email"
           id="email"
           placeholder="Enter your email "
-          value=""
         />
       </div>
-      <div class="form-group position-relative mb-3 ">
+      <div className="form-group position-relative mb-3 ">
         <input
           type="password"
-          class="form-control"
+          className="form-control"
           name="password"
           id="password"
           placeholder="Enter your password"
-          value=""
         />
       </div>
 

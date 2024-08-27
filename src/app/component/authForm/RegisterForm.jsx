@@ -30,46 +30,43 @@ const RegisterForm = () => {
   };
   return (
     <form onSubmit={handleFormSubmit}>
-      <div class="form-group position-relative mb-3 ">
+      <div className="form-group position-relative mb-3 ">
         <input
           type="text"
-          class="form-control"
+          className="form-control"
           name="name"
           id="name"
           placeholder="Enter your name"
-          value=""
         />
       </div>
-      <div class="form-group position-relative mb-3 ">
+      <div className="form-group position-relative mb-3 ">
         <input
           type="email"
-          class="form-control"
+          className="form-control"
           name="email"
           id="email"
           placeholder="Enter your email "
-          value=""
         />
       </div>
-      <div class="form-group position-relative mb-3 ">
+      <div className="form-group position-relative mb-3 ">
         <input
           type="password"
-          class="form-control"
+          className="form-control"
           name="password"
           id="password"
           placeholder="Enter your password"
-          value=""
         />
       </div>
-      <div class="form-group position-relative mb-3 ">
+      {/* <div className="form-group position-relative mb-3 ">
         <input
           type="password"
-          class="form-control"
+          className="form-control"
           name="confirm-password"
           id="confirm-password"
           placeholder="Enter your confirm-password"
           value=""
         />
-      </div>
+      </div> */}
 
       <button type="submit" className="btn btn-primary btn-sm">
         Submit
